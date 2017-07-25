@@ -39,23 +39,17 @@ Object.deepExtend = function(destination, source) {
 
 
 /**
- * @namespace person
- * @memberof personify
- */
-(function() {
-/**
 * Creates a new instance of class Person.
 * @class - Represents a person.
-* @name personify#person
 * @param {string} name - Somebody Person's name.
 * @param {string} sName - Somebody Person's surname.
 * @this Person
 */
-personify.person = function( name, sName ){
+var Person = function( name, sName ){
 	/**
 	* Varies private properties
 	* @inner
-	* @memberOf personify#person
+	* @memberOf Person
 	*/
 	var prop = {
 		templates : {view : '<div><strong>$[title]</strong></div>',},
@@ -65,74 +59,61 @@ personify.person = function( name, sName ){
 
 	/**
 	* Gets private properties
-	* @method personify#person#getProp
+	* @method getProp
 	* @instance
-	* @memberOf personify#person
+	* @memberOf Person
 	* @returns {object}
 	*/
 	this.getProp = function(){return prop}
 
 	/**
 	* Person's name
-	* @name personify#person#name
+	* @name Person#name
 	* @type {string}
 	* @instance
-	* @memberOf personify#person
+	* @memberOf Person
 	*/
 	this.name = name;
 
 	/**
 	* Person's name
-	* @name personify#person#sName
+	* @name Person#sName
 	* @type {string}
 	* @instance
-	* @memberOf personify#person
+	* @memberOf Person
 	*/
 	this.sName = sName;
 }
 
 /**
 * Does some useful operations
-* @method personify#person.doSomethingGood
+* @method doSomethingGood
 * @static
-* @memberOf personify#person
+* @memberOf Person
 * @returns {number}
 */
-personify.person.doSomethingGood = function(x, y){ return x + y; }
+Person.doSomethingGood = function(x, y){ return x + y; }
 
 /**
 * Gets Person's name
-* @method personify#person#getName
+* @method getName
 * @instance
-* @memberOf personify#person
+* @memberOf Person
 * @returns {string}
 */
-personify.person.prototype.getName = function(){ return this.name; }
-
-
-}());
-
-
+Person.prototype.getName = function(){ return this.name; }
 
 /**
- * @namespace solder
- * @memberof personify.person
+ * @namespace person
+ * @memberof personify
  */
-(function() {
-/**
-* Creates a new instance of class Solder.
-* @class - Represents a solder.
-* @name personify#person#solder
-* @param {string} name - Somebody solder's name.
-* @param {string} sName - Somebody solder's surname.
-* @this solder
-*/
-personify.person.solder = function( name, sName ){}
+window.personify.person = Person;
 
 
-personify.person.solder.prototype = Object.create(personify.person.prototype);
-personify.person.solder.prototype.constructor = personify.person.solder;
-}());
+
+
+
+
 
 var prs = new personify.person('Vasia', 'Pupkin');
 
